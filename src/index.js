@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppRouter } from "./routers/AppRouter";
+import {Provider} from 'react-redux';
+import {AppRouter} from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import {addExpense, removeExpense, editExpense} from './actions/expenses';
 import {setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate} from './actions/filters';
@@ -23,13 +24,18 @@ store.dispatch(addExpense({
     createdAt: 3022
 }));
 // store.dispatch(setTextFilter('bill'));
-store.dispatch(setTextFilter('water'));
+store.dispatch(setTextFilter('bill'));
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log(store.getState());
 console.log(visibleExpenses);
 
+const jsx = (
+    <Provider store={store}>
+        <AppRouter/>
+    </Provider>
+);
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
-// import  './playground/redux-expensify';
+ReactDOM.render(jsx, document.getElementById('app'));
+// import  './playground/hrc';
