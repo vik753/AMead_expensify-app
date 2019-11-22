@@ -100,7 +100,7 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
             };
         case 'SET_START_DATE':
             return {
-              ...state,
+                ...state,
                 startDate: action.startDate,
             };
         case 'SET_END_DATE':
@@ -121,6 +121,13 @@ const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
         // console.log(startDateMatch, endDateMatch, 'getVisibleExpenses return', startDateMatch && endDateMatch && textMatch);
         return startDateMatch && endDateMatch && textMatch;
+    }).sort((expenseA, expenseB) => {
+        if(sortBy === 'date') {
+            return expenseA.createdAt < expenseB.createdAt ? 1 : -1;
+        }
+        if(sortBy === 'amount') {
+            return expenseA.amount < expenseB.amount ? 1 : -1;
+        }
     });
 };
 
@@ -154,11 +161,27 @@ const expenseTwo = store.dispatch(
         createdAt: -1000
     })
 );
+const expenseThree = store.dispatch(
+    addExpense({
+        description: 'Add description',
+        note: 'Description',
+        amount: 10,
+        createdAt: 1922
+    })
+);
+const expenseFour = store.dispatch(
+    addExpense({
+        description: 'Java',
+        note: 'This is the final payment for that address',
+        amount: 800,
+        createdAt: 325
+    })
+);
 //
 // store.dispatch(removeExpense({id: expenseTwo.expense.id}));
 // store.dispatch(editExpense(expenseTwo.expense.id, {amount: 55}));
 //
-store.dispatch(setTextFilter('coffee2'));
+store.dispatch(setTextFilter(''));
 // store.dispatch(setTextFilter());
 // store.dispatch(setTextFilter('movie'));
 //
@@ -181,8 +204,10 @@ const demoState = {
     }],
     filters: {
         text: 'rent',
-        sortBy: 'amount', //date of amount
+        sortBy: 'amount', //date or amount
         startDate: undefined,
         endDate: undefined
     }
 };
+
+console.log('12sdfs'.includes(' '));
