@@ -1,17 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import uuid from 'uuid';
 import {getVisibleExpenses} from '../selectors/expenses';
+import ExpenseListItem from "./ExpenseListItem";
+import uuidv4 from 'uuid/v4';
 
 const ExpenseList = (props) => {
-    const visibleExpenses = getVisibleExpenses(props.expenses, props.filters);
-    const expList = visibleExpenses.map(({amount, createdAt, description, note, id}) => {
+    // console.log(props);
+    const expList = props.expenses.map((expense) => {
         return (
-            <li className="listItem" key={uuid()} id={id}>
-                <span>
-                    Description: {description}, Amount: {amount}, Created at: {createdAt}, Note: {note}
-                </span>
-            </li>
+            <ExpenseListItem
+                key={uuidv4()}
+                {...expense}
+            />
         );
     });
     return (
@@ -26,8 +26,7 @@ const ExpenseList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        expenses: state.expenses,
-        filters: state.filters,
+        expenses: getVisibleExpenses(state.expenses, state.filters),
     }
 };
 

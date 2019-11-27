@@ -4,11 +4,10 @@ import {filtersReducer} from '../reducers/filters';
 
 // Store creation
 export default () => {
-    const store = createStore(
+    return createStore(
         combineReducers({
             expenses: expensesReducer,
             filters: filtersReducer,
         })
     );
-    return store;
 };

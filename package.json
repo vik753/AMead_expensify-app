@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "2.18.1",
     "node-sass": "^4.13.0",
     "normalize.css": "7.0.0",
     "react": "^16.11.0",
+    "react-addons-shallow-compare": "15.6.0",
+    "react-dates": "12.7.0",
     "react-dom": "^16.11.0",
     "react-modal": "^3.11.1",
     "react-redux": "^7.1.3",

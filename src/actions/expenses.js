@@ -3,14 +3,15 @@ import uuidv4 from "uuid/v4";
 // ADD_EXPENSE
 const addExpense = (
     {
+        id = uuidv4(),
         description = '',
         note = '',
         amount = 0,
-        createdAt = Date.now()
+        createdAt = 0,
     } = {}) => ({
     type: 'ADD_EXPENSE',
     expense: {
-        id: uuidv4(),
+        id,
         description,
         note,
         amount,
