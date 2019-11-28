@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import moment from "moment";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import {addExpense, removeExpense, editExpense} from '../actions/expenses';
 
 class ExpenseListItem extends Component {
@@ -16,13 +18,12 @@ class ExpenseListItem extends Component {
             <li className='listItem'
                 id={id}
             >
-                <span>{description} </span>
-                <span> ${amount}, </span>
-                <span>created: {createdAt}, </span>
+                <Link to={`/edit/${id}`}>
+                    <span>{description} </span>
+                </Link>
+                <span> ${parseFloat((amount / 100)).toFixed(2)}, </span>
+                <span>{moment(createdAt).format('MMM Do,YYYY')}, </span>
                 <span>note: {note} </span>
-                <span>
-                     <a href={`/edit/:${id}`}>Edit</a>
-                 </span>
                 <button
                     onClick={this.handleRemoveBtn}
                 > Remove
