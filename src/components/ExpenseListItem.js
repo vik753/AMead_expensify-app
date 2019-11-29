@@ -22,7 +22,7 @@ class ExpenseListItem extends Component {
                     <span>{description} </span>
                 </Link>
                 <span> ${parseFloat((amount / 100)).toFixed(2)}, </span>
-                <span>{moment(createdAt).format('MMM Do,YYYY')}, </span>
+                <span>{moment(createdAt).format('MMM Do, YYYY')} </span>
                 <span>note: {note} </span>
                 <button
                     onClick={this.handleRemoveBtn}

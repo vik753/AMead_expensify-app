@@ -6,6 +6,7 @@ import configureStore from "./store/configureStore";
 import {addExpense, removeExpense, editExpense} from './actions/expenses';
 import {setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate} from './actions/filters';
 import {getVisibleExpenses} from './selectors/expenses';
+import moment from "moment";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -15,17 +16,19 @@ store.dispatch(addExpense({
     description: 'Water bill',
     note: 'Water bill',
     amount: 4500,
+    createdAt: moment('11/28/2019').format('MM/DD/YYYY').valueOf(),
 }));
 store.dispatch(addExpense({
     description: 'Gas bill',
     note: 'Gas bill',
     amount: 1000,
-    createdAt: 1000,
+    createdAt: moment('11/08/2019').format('MM/DD/YYYY').valueOf(),
 }));
 store.dispatch(addExpense({
     description: 'Rent',
     note: 'rent',
     amount: 109500,
+    createdAt: moment('11/27/2019').format('MM/DD/YYYY').valueOf(),
 }));
 
 store.dispatch(setTextFilter(''));
