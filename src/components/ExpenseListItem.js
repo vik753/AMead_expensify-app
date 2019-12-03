@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {addExpense, removeExpense, editExpense} from '../actions/expenses';
 
-class ExpenseListItem extends Component {
+export class ExpenseListItem extends Component {
 
     handleRemoveBtn = () => {
         const {dispatch, id} = this.props;
@@ -12,7 +12,7 @@ class ExpenseListItem extends Component {
     };
 
     render() {
-        const {dispatch, id, amount, createdAt, description, note} = this.props;
+        const {id, amount, createdAt, description, note} = this.props;
         // console.log(this.props);
         return (
             <li className='listItem'

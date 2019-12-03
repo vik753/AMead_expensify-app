@@ -2,27 +2,28 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getVisibleExpenses} from '../selectors/expenses';
 import ExpenseListItem from "./ExpenseListItem";
-import uuidv4 from 'uuid/v4';
 
-const ExpenseList = (props) => {
-    // console.log(props);
-    const expList = props.expenses.map((expense) => {
-        return (
-            <ExpenseListItem
-                key={uuidv4()}
-                {...expense}
-            />
-        );
-    });
-    return (
-        <div>
-            <h1>Expense list</h1>
-            <ol>
-                {expList}
-            </ol>
-        </div>
-    );
-};
+export const ExpenseList = (props) => (
+    <div>
+        {
+            props.expenses.length === 0 ? (
+                <h1>No Expenses</h1>
+            ) : (
+                <div>
+                    <h1>Expense list</h1>
+                    <hr/>
+                    <ol>
+                        {
+                            props.expenses.map((expense) => {
+                                return (<ExpenseListItem key={expense.id} {...expense} />)
+                            })
+                        }
+                    </ol>
+                </div>
+            )
+        }
+    </div>
+);
 
 const mapStateToProps = (state) => {
     return {

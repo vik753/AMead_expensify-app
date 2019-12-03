@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListItem with expenses data 1`] = `
+<li
+  className="listItem"
+  id="1"
+>
+  <Link
+    to="/edit/1"
+  >
+    <span>
+      Gum
+       
+    </span>
+  </Link>
+  <span>
+     $
+    1.95
+    , 
+  </span>
+  <span>
+    Jan 1st, 1970
+     
+  </span>
+  <span>
+    note: 
+     
+  </span>
+  <button
+    onClick={[Function]}
+  >
+     Remove
+  </button>
+</li>
+`;
