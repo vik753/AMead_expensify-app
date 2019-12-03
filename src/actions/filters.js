@@ -22,4 +22,10 @@ const setEndDate = (endDate) => ({
     endDate,
 });
 
-export {setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate};
+export {
+    setTextFilter,
+    sortByDate,
+    sortByAmount,
+    setStartDate,
+    setEndDate
+};
