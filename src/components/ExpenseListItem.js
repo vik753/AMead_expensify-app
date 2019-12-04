@@ -18,12 +18,15 @@ export class ExpenseListItem extends Component {
             <li className='listItem'
                 id={id}
             >
-                <Link to={`/edit/${id}`}>
-                    <span>{description} </span>
-                </Link>
-                <span> ${parseFloat((amount / 100)).toFixed(2)}, </span>
-                <span>{moment(createdAt).format('MMM Do, YYYY')} </span>
-                <span>note: {note} </span>
+                <div>
+                    <Link className='listItemPiece'  to={`/edit/${id}`}>
+                        <span>{description} </span>
+                    </Link>
+                    <span className='listItemPiece' > ${parseFloat((amount / 100)).toFixed(2)} </span>
+                    <span className='listItemPiece' >{moment(createdAt).format('MMM Do, YYYY')} </span>
+                    <span className='listItemPiece' >{note} </span>
+                </div>
+
                 <button
                     onClick={this.handleRemoveBtn}
                 > Remove

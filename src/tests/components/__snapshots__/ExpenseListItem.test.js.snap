@@ -5,27 +5,35 @@ exports[`should render ExpenseListItem with expenses data 1`] = `
   className="listItem"
   id="1"
 >
-  <Link
-    to="/edit/1"
-  >
-    <span>
-      Gum
+  <div>
+    <Link
+      className="listItemPiece"
+      to="/edit/1"
+    >
+      <span>
+        Gum
+         
+      </span>
+    </Link>
+    <span
+      className="listItemPiece"
+    >
+       $
+      1.95
        
     </span>
-  </Link>
-  <span>
-     $
-    1.95
-    , 
-  </span>
-  <span>
-    Jan 1st, 1970
-     
-  </span>
-  <span>
-    note: 
-     
-  </span>
+    <span
+      className="listItemPiece"
+    >
+      Jan 1st, 1970
+       
+    </span>
+    <span
+      className="listItemPiece"
+    >
+       
+    </span>
+  </div>
   <button
     onClick={[Function]}
   >
