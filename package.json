@@ -6,6 +6,7 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "3.0.1",
+    "express": "^4.17.1",
     "jest": "24.9.0",
     "moment": "2.18.1",
     "node-sass": "^4.13.0",
@@ -26,6 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:serve": "live-server build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {DateRangePicker, SingleDatePicker} from "react-dates";
+import {DateRangePicker} from "react-dates";
 import {
     setTextFilter,
     sortByDate,
