@@ -1,0 +1,13 @@
+heroku --version
+heroku login
+heroku create vik753-react-expensify
+git remote -v
+
+********* tuned pakage.json scripts
+"start-heroku": "node server/server.js"
+
+********* tuned server/server.js ********
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log('Server is up!');
+});
