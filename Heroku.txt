@@ -11,3 +11,9 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log('Server is up!');
 });
+
+******************** Deploy to Heroku
+git push heroku master
+git push heroku expensify-app
+*** to deploy not Master branch - use:
+git push heroku expensify-app:master
