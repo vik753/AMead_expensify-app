@@ -5,12 +5,15 @@ git remote -v
 
 ********* tuned pakage.json scripts
 "start-heroku": "node server/server.js"
+"heroku-postbuild": "npm run build"
 
 ********* tuned server/server.js ********
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log('Server is up!');
 });
+
+
 
 ******************** Deploy to Heroku
 git push heroku master
