@@ -16,7 +16,7 @@ exports[`should render ExpenseList with expenses 1`] = `
     </h1>
     <hr />
     <ol>
-      <Connect(ExpenseListItem)
+      <[object Object]
         amount={195}
         createdAt={0}
         description="Gum"
@@ -24,7 +24,7 @@ exports[`should render ExpenseList with expenses 1`] = `
         key="1"
         note=""
       />
-      <Connect(ExpenseListItem)
+      <[object Object]
         amount={109500}
         createdAt={-345600000}
         description="Rent"
@@ -32,7 +32,7 @@ exports[`should render ExpenseList with expenses 1`] = `
         key="2"
         note=""
       />
-      <Connect(ExpenseListItem)
+      <[object Object]
         amount={4500}
         createdAt={345600000}
         description="Credit card"

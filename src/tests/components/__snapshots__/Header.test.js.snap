@@ -6,31 +6,31 @@ exports[`should render Header correctly 1`] = `
     Expensify
   </h1>
   <span>
-    <NavLink
+    <[object Object]
       activeClassName="is-active"
       exact={true}
       to="/"
     >
       Dashboard
-    </NavLink>
+    </[object Object]>
      / 
   </span>
   <span>
-    <NavLink
+    <[object Object]
       activeClassName="is-active"
       to="/create"
     >
       Create expense
-    </NavLink>
+    </[object Object]>
      / 
   </span>
   <span>
-    <NavLink
+    <[object Object]
       activeClassName="is-active"
       to="/help"
     >
       Help
-    </NavLink>
+    </[object Object]>
      / 
   </span>
 </div>

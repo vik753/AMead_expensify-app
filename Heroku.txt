@@ -20,3 +20,6 @@ git push heroku master
 git push heroku expensify-app
 *** to deploy not Master branch - use:
 git push heroku expensify-app:master
+
+heroku open // open - https://vik753-react-expensify.herokuapp.com/
+heroku local web // open local heroku server - http://localhost:5000/

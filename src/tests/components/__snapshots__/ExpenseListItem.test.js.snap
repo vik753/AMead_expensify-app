@@ -6,7 +6,7 @@ exports[`should render ExpenseListItem with expenses data 1`] = `
   id="1"
 >
   <div>
-    <Link
+    <[object Object]
       className="listItemPiece"
       to="/edit/1"
     >
@@ -14,7 +14,7 @@ exports[`should render ExpenseListItem with expenses data 1`] = `
         Gum
          
       </span>
-    </Link>
+    </[object Object]>
     <span
       className="listItemPiece"
     >

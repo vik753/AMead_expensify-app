@@ -1,4 +1,5 @@
 // TO RUN EXPRESS BUILD-SERVER - node server/server.js
+// npm install express ("express": "^4.17.1")
 
 const path = require('path');
 const express = require('express');
