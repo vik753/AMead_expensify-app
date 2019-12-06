@@ -5,7 +5,8 @@ import {AppRouter} from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import {addExpense, removeExpense, editExpense} from './actions/expenses';
 import {setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate} from './actions/filters';
-import {getVisibleExpenses} from './selectors/expenses';
+import getVisibleExpenses from './selectors/expenses';
+import selectExpensesTotal from './selectors/expenses-total';
 import moment from "moment";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -14,30 +15,33 @@ import 'react-dates/lib/css/_datepicker.css';
 const store = configureStore();
 
 // store.dispatch(addExpense({
-//     description: 'Water bill',
-//     note: 'Water bill',
-//     amount: 4500,
+//     description: 'Gum',
+//     note: '',
+//     amount: 195,
 //     createdAt: moment('12/28/2019').format('MM/DD/YYYY').valueOf(),
 // }));
 // store.dispatch(addExpense({
-//     description: 'Gas bill',
-//     note: 'Gas bill',
-//     amount: 1000,
+//     description: 'Rent',
+//     note: '',
+//     amount: 109500,
 //     createdAt: moment('12/08/2019').format('MM/DD/YYYY').valueOf(),
 // }));
 // store.dispatch(addExpense({
-//     description: 'Rent',
-//     note: 'rent',
-//     amount: 109500,
+//     description: 'Credit card',
+//     note: '',
+//     amount: 4500,
 //     createdAt: moment('12/27/2019').format('MM/DD/YYYY').valueOf(),
 // }));
-//
+
 // store.dispatch(setTextFilter(''));
-//
-// const state = store.getState();
+
+const state = store.getState();
+
 // const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 // console.log(store.getState());
 // console.log(visibleExpenses);
+
+console.log('total = ', selectExpensesTotal(state.expenses));
 
 const jsx = (
     <Provider store={store}>
