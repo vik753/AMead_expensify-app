@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import moment from "moment";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import numeral from "numeral";
 import {addExpense, removeExpense, editExpense} from '../actions/expenses';
 
 export class ExpenseListItem extends Component {
@@ -19,12 +20,12 @@ export class ExpenseListItem extends Component {
                 id={id}
             >
                 <div>
-                    <Link className='listItemPiece'  to={`/edit/${id}`}>
+                    <Link className='listItemPiece' to={`/edit/${id}`}>
                         <span>{description} </span>
                     </Link>
-                    <span className='listItemPiece' > ${parseFloat((amount / 100)).toFixed(2)} </span>
-                    <span className='listItemPiece' >{moment(createdAt).format('MMM Do, YYYY')} </span>
-                    <span className='listItemPiece' >{note} </span>
+                    <span className='listItemPiece'>{numeral(amount / 100).format('$0,0.00')} </span>
+                    <span className='listItemPiece'>{moment(createdAt).format('MMM Do, YYYY')} </span>
+                    <span className='listItemPiece'>{note} </span>
                 </div>
 
                 <button

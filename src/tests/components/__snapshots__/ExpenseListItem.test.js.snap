@@ -18,8 +18,7 @@ exports[`should render ExpenseListItem with expenses data 1`] = `
     <span
       className="listItemPiece"
     >
-       $
-      1.95
+      $1.95
        
     </span>
     <span
