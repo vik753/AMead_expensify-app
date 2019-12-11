@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {AppRouter} from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
-import {addExpense, removeExpense, editExpense} from './actions/expenses';
+import {startAddExpense, removeExpense, editExpense} from './actions/expenses';
 import {setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import selectExpensesTotal from './selectors/expenses-total';
@@ -11,9 +11,20 @@ import moment from "moment";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
-import './firebase/firebase';
+import database from './firebase/firebase';
 
 const store = configureStore();
+
+database.ref('expenses').once('value').then(snapshot => {
+    const expenses = [];
+    snapshot.forEach(childSnapshot => {
+        expenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot
+        })
+    });
+    console.log(expenses);
+});
 
 // store.dispatch(addExpense({
 //     description: 'Gum',
@@ -33,16 +44,15 @@ const store = configureStore();
 //     amount: 4500,
 //     createdAt: moment('12/27/2019').format('MM/DD/YYYY').valueOf(),
 // }));
-
 // store.dispatch(setTextFilter(''));
 
 const state = store.getState();
 
+
 // const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 // console.log(store.getState());
 // console.log(visibleExpenses);
-
-console.log('total = ', selectExpensesTotal(state.expenses));
+// console.log('total = ', selectExpensesTotal(state.expenses));
 
 const jsx = (
     <Provider store={store}>
