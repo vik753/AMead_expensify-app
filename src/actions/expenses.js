@@ -31,6 +31,17 @@ const removeExpense = ({id} = {}) => ({
     type: 'REMOVE_EXPENSE',
     id
 });
+
+const startRemoveExpense = ({id} = {}) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id}`).remove()
+            .then(() => {
+                dispatch(removeExpense({id}));
+                // console.log('Remove succeeded!');
+            })
+            .catch((e) => console.log('Error: ', e.message));
+    };
+};
 // EDIT_EXPENSE
 const editExpense = (id, updates) => ({
     type: 'EDIT_EXPENSE',
@@ -56,15 +67,16 @@ const startSetExpenses = () => {
                     });
                 });
                 dispatch(setExpenses(expenses));
-            }).catch(e => console.log('Error fetching data "startSetExpenses": ', e));
+            }).catch(e => console.log('Error loading expenses: ', e));
     };
 };
 
 export {
+    startSetExpenses,
     startAddExpense,
+    startRemoveExpense,
     addExpense,
     removeExpense,
     editExpense,
     setExpenses,
-    startSetExpenses
 }

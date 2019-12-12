@@ -3,13 +3,13 @@ import moment from "moment";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import numeral from "numeral";
-import {addExpense, removeExpense, editExpense} from '../actions/expenses';
+import {startRemoveExpense} from '../actions/expenses';
 
 export class ExpenseListItem extends Component {
 
     handleRemoveBtn = () => {
         const {dispatch, id} = this.props;
-        dispatch(removeExpense({id}));
+        dispatch(startRemoveExpense({id}));
     };
 
     render() {
