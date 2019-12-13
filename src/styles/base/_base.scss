@@ -1,27 +1,20 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600,700&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,700&display=swap&subset=cyrillic');
-
 html {
-    font-size: 62.5%;// when font-size of html = 6.2% -> 1rem = 10px
+  font-size: 62.5%;
 }
 
 body {
-    font-family: 'Ubuntu', "Raleway", sans-serif;
-    font-size: $m-size;// equivalent -> 16px
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway", sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
 
-    &[disabled] {
-        cursor: default;
-    }
+button:disabled {
+  cursor: default;
 }
 
 .is-active {
-    font-weight: bold;
+  font-weight: bold;
 }
