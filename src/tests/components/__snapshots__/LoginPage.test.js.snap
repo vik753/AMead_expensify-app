@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render EditExpensePage 1`] = `
+exports[`should correctly render LoginPage 1`] = `
 ShallowWrapper {
   "length": 1,
 }

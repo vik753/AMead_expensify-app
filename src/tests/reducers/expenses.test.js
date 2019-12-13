@@ -1,71 +1,76 @@
-import {expensesReducer} from "../../reducers/expenses";
-import expenses from "../fixtures/expenses";
-import moment from "moment";
+import expensesReducer from '../../reducers/expenses';
+import expenses from '../fixtures/expenses';
 
 test('should set default state', () => {
-    const state = expensesReducer(undefined, {type: '@@INIT'});
-    expect(state).toEqual([])
+  const state = expensesReducer(undefined, { type: '@@INIT' });
+  expect(state).toEqual([]);
 });
 
-test('should remove expense by ID', () => {
-    const action = {
-        type: 'REMOVE_EXPENSE',
-        id: expenses[1].id,
-    };
-    expect(expensesReducer(expenses, action)).toEqual([expenses[0], expenses[2]]);
+test('should remove expense by id', () => {
+  const action = {
+    type: 'REMOVE_EXPENSE',
+    id: expenses[1].id
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([expenses[0], expenses[2]]);
 });
 
-test('should not remove expense if id not found', () => {
-    const action = {
-        type: 'REMOVE_EXPENSE',
-        id: '-1',
-    };
-    expect(expensesReducer(expenses, action)).toEqual(expenses);
+test('should not remove expenses if id not found', () => {
+  const action = {
+    type: 'REMOVE_EXPENSE',
+    id: '-1'
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual(expenses);
 });
 
 test('should add an expense', () => {
-    const action = {
-        type: 'ADD_EXPENSE',
-        expense: {
-            description: 'book',
-            note: 'Angels and Demons by Dan Brown',
-            amount: 199,
-            createdAt: 1000
-        },
-    };
-    const result = expensesReducer(expenses, action);
-    expect(result).toEqual([
-        ...expenses,
-        action.expense,
-    ]);
+  const expense = {
+    id: '109',
+    description: 'Laptop',
+    note: '',
+    createdAt: 20000,
+    amount: 29500
+  };
+  const action = {
+    type: 'ADD_EXPENSE',
+    expense
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([...expenses, expense]);
 });
 
 test('should edit an expense', () => {
-    const updatedExpense = {
-        ...expenses[1],
-        description: 'RentUpdated',
-        note: 'RentUpdated note',
-        amount: 209500,
-        createdAt: moment(0).subtract(6, 'days')
-    };
-    const action = {
-        type: 'EDIT_EXPENSE',
-        id: expenses[1].id,
-        updates: {...updatedExpense},
-    };
-    expect(expensesReducer(expenses, action))
-        .toEqual([expenses[0], updatedExpense, expenses[2]]);
+  const amount = 122000;
+  const action = {
+    type: 'EDIT_EXPENSE',
+    id: expenses[1].id,
+    updates: {
+      amount
+    }
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state[1].amount).toBe(amount);
 });
 
-test('should not edit an expense if id is not exists', () => {
-    const updatedExpense = {
-        ...expenses[1],
-        amount: 500000,
-    };
-    const action = {
-        type: 'EDIT_EXPENSE',
-        id: '-1',
-        updates: {...updatedExpense},
-    };
-    expect(expensesReducer(expenses, action)).toEqual(expenses);
+test('should not edit an expense if id not found', () => {
+  const amount = 122000;
+  const action = {
+    type: 'EDIT_EXPENSE',
+    id: '-1',
+    updates: {
+      amount
+    }
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual(expenses);
+});
+
+test('should set expenses', () => {
+  const action = {
+    type: 'SET_EXPENSES',
+    expenses: [expenses[1]]
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([expenses[1]]);
 });

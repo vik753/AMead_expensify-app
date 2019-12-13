@@ -1,37 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly 1`] = `
-<div>
-  <h1>
-    Expensify
-  </h1>
-  <span>
-    <[object Object]
-      activeClassName="is-active"
-      exact={true}
-      to="/"
-    >
-      Dashboard
-    </[object Object]>
-     / 
-  </span>
-  <span>
-    <[object Object]
-      activeClassName="is-active"
-      to="/create"
-    >
-      Create expense
-    </[object Object]>
-     / 
-  </span>
-  <span>
-    <[object Object]
-      activeClassName="is-active"
-      to="/help"
-    >
-      Help
-    </[object Object]>
-     / 
-  </span>
-</div>
+ShallowWrapper {
+  "length": 1,
+}
 `;

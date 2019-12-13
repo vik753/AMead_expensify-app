@@ -1,12 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should right render NotFoundPage 1`] = `
-<div>
-  404! -&gt; 
-  <[object Object]
-    to="/"
-  >
-    Go home
-  </[object Object]>
-</div>
+exports[`should render NotFoundPage correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+}
 `;

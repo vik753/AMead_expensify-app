@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "3.0.1",
